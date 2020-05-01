@@ -33,7 +33,7 @@ More information regarding how to find a Modular Multiplicative Inverse
 and what it means can be found [here.](https://en.wikipedia.org/wiki/Modular_multiplicative_inverse)
 
 Because automatic decryption fails if `a` is not coprime to `m` your
-program should return status 1 and `"Error: a and m must be coprime."`
+program should error
 if they are not.  Otherwise it should encode or decode with the
 provided key.
 
