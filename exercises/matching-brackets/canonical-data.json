@@ -123,6 +123,22 @@
       "expected": false
     },
     {
+      "description": "early unexpected brackets",
+      "property": "isPaired",
+      "input": {
+        "value": ")()"
+      },
+      "expected": false
+    },
+    {
+      "description": "early mismatched brackets",
+      "property": "isPaired",
+      "input": {
+        "value": "{)()"
+      },
+      "expected": false
+    },
+    {
       "description": "math expression",
       "property": "isPaired",
       "input": {
