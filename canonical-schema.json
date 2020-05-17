@@ -27,7 +27,7 @@
    "self": { "vendor" : "io.exercism"
            , "name"   : "canonical-data"
            , "format" : "jsonschema"
-           , "version": "1-1-0"
+           , "version": "1-2-0"
            },
 
    "$ref": "#/definitions/canonicalData",
@@ -85,12 +85,13 @@
           , "type"       : "object"
           , "required"   : ["description", "property", "input", "expected"]
           , "properties" :
-                { "description": { "$ref": "#/definitions/description" }
-                , "optional"   : { "$ref": "#/definitions/optional"    }
-                , "comments"   : { "$ref": "#/definitions/comments"    }
-                , "property"   : { "$ref": "#/definitions/property"    }
-                , "input"      : { "$ref": "#/definitions/input"       }
-                , "expected"   : { "$ref": "#/definitions/expected"    }
+                { "description"             : { "$ref": "#/definitions/description"             }
+                , "optional"                : { "$ref": "#/definitions/optional"                }
+                , "multi-line-string-array" : { "$ref": "#/definitions/multi-line-string-array" }
+                , "comments"                : { "$ref": "#/definitions/comments"                }
+                , "property"                : { "$ref": "#/definitions/property"                }
+                , "input"                   : { "$ref": "#/definitions/input"                   }
+                , "expected"                : { "$ref": "#/definitions/expected"                }
                 }
           , "additionalProperties": false
           },
@@ -117,6 +118,14 @@
           { "description": "An identifier for similar optional test cases (kebab-case)"
           , "type"       : "string"
           , "pattern"    : "^[a-z]+(-[a-z]+)*$"
+          },
+    
+      "multi-line-string-array":
+          { "description": "Arrays of strings in the specified properties represent a multiline string"
+          , "type"       : "array"
+          , "items"      : {
+              "type": "string"
+            }
           },
 
       "property":

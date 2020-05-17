@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# This script checks that multi-line-string-array only contains valid keys.
+
+failed=0
+
+check_keys() {
+    json_file=$1
+    echo "Checking 'multi-line-string-array' contents in $json_file"
+
+    present_keys=$(jq '[ .cases[] | ."multi-line-string-array" | select(. != null)[] ] | unique' $json_file)
+
+    allowed_keys=$(jq '[ .cases[] | recurse(.cases[]?) | .input | select(. != null) | keys[] ] + ["expected"] | unique' $json_file)
+
+    invalid_keys=$(jq --null-input \
+                      --argjson allowed "$allowed_keys" \
+                      --argjson present "$present_keys" \
+                      --raw-output '$present - $allowed | join("\n")')
+
+    if [ ! -z "$invalid_keys" ]; then
+        echo "The following multi-line-string-array input parameters did not occur in any tests:"
+        echo "$invalid_keys" | perl -pe 's/^/ - /'
+        echo
+
+        failed=1
+    fi
+}
+
+for json_file in $(git diff --name-only master HEAD | grep '^exercises/.*/canonical-data\.json$'); do
+    check_keys $json_file
+done
+
+if [ $failed -gt 0 ]; then
+    echo "Only input keys are valid entries of multi-line-string-array"
+    exit 1
+fi
+
+exit 0

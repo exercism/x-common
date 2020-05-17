@@ -8,4 +8,5 @@ script:
   - bin/check_required_files_present
   - sh bin/check_versions
   - bin/check_optional
+  - bin/check_multi-line-string-array_contents
   - yarn test

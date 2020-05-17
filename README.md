@@ -40,7 +40,7 @@ is easier to understand with an example:
 
 ```json
 { "exercise": "foobar"
-, "version" : "1.1.0"
+, "version" : "1.2.0"
 , "comments":
     [ " Comments are always optional and can be used almost anywhere.      "
     , "                                                                    "
@@ -78,6 +78,18 @@ is easier to understand with an example:
           "lastName"   : "Smithee"
         }
       , "expected"   : "ASlmainthee"
+      }
+    , { "description": "Baz'ing a name returns its parts combined to a multi-line string"
+      , "property"   : "baz"
+      , "multi-line-string-array": [ "expected" ]
+      , "input"      : {
+          "firstName"  : "Alan",
+          "lastName"   : "Smithee"
+        }  
+      , "expected"   : [ "Their name is: "
+                       , "Alan"
+                       , "Smithee."
+                       ]
       }
     , { "comments":
           [ " Test cases can be arbitrarily grouped with a description "
