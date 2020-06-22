@@ -4,7 +4,7 @@
     "A pangram is a sentence using every letter of the alphabet at least once.",
     "Output should be a boolean denoting if the string is a pangram or not."
   ],
-  "version": "2.0.0",
+  "version": "2.1.0",
   "cases": [
     {
       "description": "empty sentence",
@@ -85,6 +85,22 @@
         "sentence": "the quick brown fox jumps over with lazy FX"
       },
       "expected": false
+    },
+    {
+      "description": "a-m and A-M are 26 different letters but not a pangram",
+      "property": "isPangram",
+      "input": {
+        "sentence": "abcdefghijklm ABCDEFGHIJKLM"
+      },
+      "expected": false
+    },
+    {
+      "description": "pangram with more than 26 letters (if case sensitive)",
+      "property": "isPangram",
+      "input": {
+        "sentence": "the 1 quick brown fox jumps Over the 2 lazy dogs"
+      },
+      "expected": true
     }
   ]
 }
