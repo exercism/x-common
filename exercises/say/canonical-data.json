@@ -1,6 +1,6 @@
 {
   "exercise": "say",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "comments": [
     "An 'error' object is used as expected value to indicate that the",
     "input value is out of the range described in the exercise."
@@ -69,6 +69,14 @@
         "number": 1000
       },
       "expected": "one thousand"
+    },
+    {
+      "description": "one thousand twenty-three",
+      "property": "say",
+      "input": {
+        "number": 1023
+      },
+      "expected": "one thousand twenty-three"
     },
     {
       "description": "one thousand two hundred thirty-four",
