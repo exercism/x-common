@@ -73,6 +73,14 @@
         "number": 9926314
       },
       "expected": false
+    },
+    {
+      "description": "Seventeen digit number that is an Armstrong number",
+      "property": "isArmstrongNumber",
+      "input": {
+        "number": 21897142587612075
+      },
+      "expected": true
     }
   ]
 }
