@@ -1,6 +1,6 @@
 {
   "exercise": "largest-series-product",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "comments": [
     "Different languages may handle errors differently.",
     "e.g. raise exceptions, return (int, error), return Option<int>, etc.",
@@ -164,7 +164,7 @@
         "digits": "12345",
         "span": -1
       },
-      "expected": {"error": "span must be greater than zero"}
+      "expected": {"error": "span must not be negative"}
     }
   ]
 }
