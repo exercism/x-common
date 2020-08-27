@@ -1,6 +1,6 @@
 {
   "exercise": "matching-brackets",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "cases": [
     {
       "description": "paired square brackets",
@@ -119,6 +119,22 @@
       "property": "isPaired",
       "input": {
         "value": "[]]"
+      },
+      "expected": false
+    },
+    {
+      "description": "early unexpected brackets",
+      "property": "isPaired",
+      "input": {
+        "value": ")()"
+      },
+      "expected": false
+    },
+    {
+      "description": "early mismatched brackets",
+      "property": "isPaired",
+      "input": {
+        "value": "{)()"
       },
       "expected": false
     },
