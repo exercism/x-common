@@ -1,6 +1,6 @@
 {
   "exercise": "word-count",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "comments": [
     "For each word in the input, count the number of times it appears in the",
     "entire sentence."
@@ -170,6 +170,16 @@
         "one": 1,
         "two": 1,
         "three": 1
+      }
+    },
+    {
+      "description": "multiple apostrophes are ignored",
+      "property": "countWords",
+      "input": {
+        "sentence": "''hey''"
+      },
+      "expected": {
+        "hey": 1
       }
     }
   ]
