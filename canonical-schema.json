@@ -1,158 +1,201 @@
 {
-   "comments":
-   [ " This is a JSON Schema for 'canonical-data.json' files.     "
-   , "                                                            "
-   , " It enforces just a general structure for all exercises,    "
-   , " optimising for the ability to represent example-based tests"
-   , " of the form 'function (input) == output'. Future expansions"
-   , " may allow for other types of tests such as property-based. "
-   , "                                                            "
-   , " The only thing enforced regarding how test data should be  "
-   , " structured is the error encoding, because it was agreed    "
-   , " and it doesn't restrict flexibility in a significant way.  "
-   , "                                                            "
-   , " Standardized property names may help when automatically    "
-   , " deriving JSON parsers in some languages, so we followed    "
-   , " a few conventions from the 'Google JSON Style Guide'.      "
-   , "                                                            "
-   , " Additionally, this schema strictly enforces letters, in    "
-   , " lowerCamelCase, for naming the 'property' being tested. We "
-   , " expect this regularity will allow an easier automatic      "
-   , " generation of function's names in test generators,         "
-   , " slightly reducing the amount of manually generated code.   "
-   ],
-
-   "$schema": "http://json-schema.org/draft-04/schema#",
-
-   "self": { "vendor" : "io.exercism"
-           , "name"   : "canonical-data"
-           , "format" : "jsonschema"
-           , "version": "1-1-0"
-           },
-
-   "$ref": "#/definitions/canonicalData",
-
-   "definitions":{
-
-      "canonicalData":
-          { "description": "This is the top-level file structure"
-          , "type"       : "object"
-          , "required"   : ["exercise", "cases"]
-          , "properties" :
-                { "exercise" : { "$ref": "#/definitions/exercise"  }
-                , "comments" : { "$ref": "#/definitions/comments"  }
-                , "cases"    : { "$ref": "#/definitions/testGroup" }
-                }
-          , "additionalProperties": false
-          },
-
-      "exercise":
-          { "description": "Exercise's slug (kebab-case)"
-          , "type"       : "string"
-          , "pattern"    : "^[a-z]+(-[a-z]+)*$"
-          },
-
-      "comments":
-          { "description": "An array of strings to fake multi-line comments"
-          , "type"       : "array"
-          , "items"      : { "type": "string" }
-          , "minItems"   : 1
-          },
-
-      "testGroup":
-          { "description": "An array of labeled test items"
-          , "type"       : "array"
-          , "items"      : { "$ref": "#/definitions/labeledTestItem" }
-          , "minItems"   : 1
-          },
-
-      "labeledTestItem":
-          { "description": "A single test or group of tests with a description"
-          , "oneOf": [ { "$ref": "#/definitions/labeledTest"      }
-                     , { "$ref": "#/definitions/labeledTestGroup" }
-                     ]
-          },
-
-      "labeledTest":
-          { "description": "A single test with a description"
-          , "type"       : "object"
-          , "required"   : ["uuid", "description", "property", "input", "expected"]
-          , "properties" :
-                { "uuid"        : { "$ref": "#/definitions/uuid" }
-                , "reimplements": { "$ref": "#/definitions/uuid" }
-                , "description" : { "$ref": "#/definitions/description" }
-                , "scenarios"   : { "$ref": "#/definitions/scenarios"   }
-                , "comments"    : { "$ref": "#/definitions/comments"    }
-                , "property"    : { "$ref": "#/definitions/property"    }
-                , "input"       : { "$ref": "#/definitions/input"       }
-                , "expected"    : { "$ref": "#/definitions/expected"    }
-                }
-          , "additionalProperties": false
-          },
-
-      "labeledTestGroup":
-          { "description": "A group of tests with a description"
-          , "type"       : "object"
-          , "required"   : ["description", "cases"]
-          , "properties" :
-                { "description": { "$ref": "#/definitions/description" }
-                , "scenarios"  : { "$ref": "#/definitions/scenarios"   }
-                , "comments"   : { "$ref": "#/definitions/comments"    }
-                , "cases"      : { "$ref": "#/definitions/testGroup"   }
-                }
-          , "additionalProperties": false
-          },
-
-      "description":
-          { "description": "A short, clear, one-line description"
-          , "type"       : "string"
-          },
-
-      "uuid":
-          { "description": "A universally unique identifier in the v4 format"
-          , "type"       : "string"
-          , "pattern"    : "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
-          },
-
-      "scenario":
-          { "description": "An identifier for a specific scenario (kebab-case)"
-          , "type": "string"
-          , "enum": ["big-integer", "floating-point", "library-test", "unicode"]
-          },
-
-      "scenarios":
-          { "description": "An array of scenarios that can be used to include/exclude test cases"
-          , "type"       : "array"
-          , "items"      : { "$ref": "#/definitions/scenario" }
-          , "minItems"   : 0
-          },
-
-      "property":
-          { "description": "A letters-only, lowerCamelCase property name"
-          , "type"       : "string"
-          , "pattern"    : "^[a-z]+([A-Z][a-z]+)*[A-Z]?$"
-          },
-
-      "input":
-          { "description": "The inputs to a test case"
-          , "type"       : "object"
-          },
-
-      "expected":
-          { "description": "The expected return value of a test case"
-          , "properties":
-               { "error": { "$ref": "#/definitions/error" }
-               }
-          , "dependencies":
-               { "error": { "maxProperties": 1 }
-               }
-          },
-
-      "error":
-          { "description": "A message describing an error condition"
-          , "type"       : "string"
-          }
-
+  "comments": [
+    " This is a JSON Schema for 'canonical-data.json' files.     ",
+    "                                                            ",
+    " It enforces just a general structure for all exercises,    ",
+    " optimising for the ability to represent example-based tests",
+    " of the form 'function (input) == output'. Future expansions",
+    " may allow for other types of tests such as property-based. ",
+    "                                                            ",
+    " The only thing enforced regarding how test data should be  ",
+    " structured is the error encoding, because it was agreed    ",
+    " and it doesn't restrict flexibility in a significant way.  ",
+    "                                                            ",
+    " Standardized property names may help when automatically    ",
+    " deriving JSON parsers in some languages, so we followed    ",
+    " a few conventions from the 'Google JSON Style Guide'.      ",
+    "                                                            ",
+    " Additionally, this schema strictly enforces letters, in    ",
+    " lowerCamelCase, for naming the 'property' being tested. We ",
+    " expect this regularity will allow an easier automatic      ",
+    " generation of function's names in test generators,         ",
+    " slightly reducing the amount of manually generated code.   "
+  ],
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "self": {
+    "vendor": "io.exercism",
+    "name": "canonical-data",
+    "format": "jsonschema",
+    "version": "1-1-0"
+  },
+  "$ref": "#/definitions/canonicalData",
+  "definitions": {
+    "canonicalData": {
+      "description": "This is the top-level file structure",
+      "type": "object",
+      "required": [
+        "exercise",
+        "cases"
+      ],
+      "properties": {
+        "exercise": {
+          "$ref": "#/definitions/exercise"
+        },
+        "comments": {
+          "$ref": "#/definitions/comments"
+        },
+        "cases": {
+          "$ref": "#/definitions/testGroup"
+        }
+      },
+      "additionalProperties": false
+    },
+    "exercise": {
+      "description": "Exercise's slug (kebab-case)",
+      "type": "string",
+      "pattern": "^[a-z]+(-[a-z]+)*$"
+    },
+    "comments": {
+      "description": "An array of strings to fake multi-line comments",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "testGroup": {
+      "description": "An array of labeled test items",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/labeledTestItem"
+      },
+      "minItems": 1
+    },
+    "labeledTestItem": {
+      "description": "A single test or group of tests with a description",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/labeledTest"
+        },
+        {
+          "$ref": "#/definitions/labeledTestGroup"
+        }
+      ]
+    },
+    "labeledTest": {
+      "description": "A single test with a description",
+      "type": "object",
+      "required": [
+        "uuid",
+        "description",
+        "property",
+        "input",
+        "expected"
+      ],
+      "properties": {
+        "uuid": {
+          "$ref": "#/definitions/uuid"
+        },
+        "reimplements": {
+          "$ref": "#/definitions/uuid"
+        },
+        "description": {
+          "$ref": "#/definitions/description"
+        },
+        "scenarios": {
+          "$ref": "#/definitions/scenarios"
+        },
+        "comments": {
+          "$ref": "#/definitions/comments"
+        },
+        "property": {
+          "$ref": "#/definitions/property"
+        },
+        "input": {
+          "$ref": "#/definitions/input"
+        },
+        "expected": {
+          "$ref": "#/definitions/expected"
+        }
+      },
+      "additionalProperties": false
+    },
+    "labeledTestGroup": {
+      "description": "A group of tests with a description",
+      "type": "object",
+      "required": [
+        "description",
+        "cases"
+      ],
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/description"
+        },
+        "scenarios": {
+          "$ref": "#/definitions/scenarios"
+        },
+        "comments": {
+          "$ref": "#/definitions/comments"
+        },
+        "cases": {
+          "$ref": "#/definitions/testGroup"
+        }
+      },
+      "additionalProperties": false
+    },
+    "description": {
+      "description": "A short, clear, one-line description",
+      "type": "string"
+    },
+    "uuid": {
+      "description": "A universally unique identifier in the v4 format",
+      "type": "string",
+      "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
+    },
+    "scenario": {
+      "description": "An identifier for a specific scenario (kebab-case)",
+      "type": "string",
+      "enum": [
+        "big-integer",
+        "floating-point",
+        "immutable",
+        "library-test",
+        "unicode"
+      ]
+    },
+    "scenarios": {
+      "description": "An array of scenarios that can be used to include/exclude test cases",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/scenario"
+      },
+      "minItems": 0
+    },
+    "property": {
+      "description": "A letters-only, lowerCamelCase property name",
+      "type": "string",
+      "pattern": "^[a-z]+([A-Z][a-z]+)*[A-Z]?$"
+    },
+    "input": {
+      "description": "The inputs to a test case",
+      "type": "object"
+    },
+    "expected": {
+      "description": "The expected return value of a test case",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/error"
+        }
+      },
+      "dependencies": {
+        "error": {
+          "maxProperties": 1
+        }
+      }
+    },
+    "error": {
+      "description": "A message describing an error condition",
+      "type": "string"
     }
-
+  }
 }

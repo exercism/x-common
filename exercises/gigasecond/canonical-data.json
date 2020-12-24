@@ -62,6 +62,23 @@
             "moment": "2015-01-24T23:59:59"
           },
           "expected": "2046-10-03T01:46:39"
+        },
+        {
+          "uuid": "fcec307c-7529-49ab-b0fe-20309197618a",
+          "description": "does not mutate the input",
+          "comments": [
+            "This test case is for languages with a mutable date or datetime  ",
+            "datastructure. After running add(moment), moment should remain   ",
+            "the same."
+          ],
+          "scenarios": [
+            "immutable"
+          ],
+          "property": "isEqual",
+          "input": {
+            "moment": "2015-01-24T23:59:59"
+          },
+          "expected": "moment === moment"
         }
       ]
     }
