@@ -117,7 +117,7 @@
       "scenario":
           { "description": "An identifier for a specific scenario (kebab-case)"
           , "type": "string"
-          , "enum": ["big-integer", "floating-point", "library-test", "unicode"]
+          , "enum": ["big-integer", "floating-point", "library-test", "local-scope", "unicode"]
           },
 
       "scenarios":
@@ -154,5 +154,4 @@
           }
 
     }
-
 }

@@ -17,6 +17,15 @@
             "instructions": ["1 2 3 4 5"]
           },
           "expected": [1, 2, 3, 4, 5]
+        },
+        {
+          "uuid": "fd7a8da2-6818-4203-a866-fed0714e7aa0",
+          "description": "pushes negative numbers onto the stack",
+          "property": "evaluate",
+          "input": {
+            "instructions": ["-1 -2 -3 -4 -5"]
+          },
+          "expected": [-1, -2, -3, -4, -5]
         }
       ]
     },
@@ -39,7 +48,9 @@
           "input": {
             "instructions": ["+"]
           },
-          "expected": {"error": "empty stack"}
+          "expected": {
+            "error": "empty stack"
+          }
         },
         {
           "uuid": "06efb9a4-817a-435e-b509-06166993c1b8",
@@ -48,7 +59,9 @@
           "input": {
             "instructions": ["1 +"]
           },
-          "expected": {"error": "only one value on the stack"}
+          "expected": {
+            "error": "only one value on the stack"
+          }
         }
       ]
     },
@@ -71,7 +84,9 @@
           "input": {
             "instructions": ["-"]
           },
-          "expected": {"error": "empty stack"}
+          "expected": {
+            "error": "empty stack"
+          }
         },
         {
           "uuid": "b3cee1b2-9159-418a-b00d-a1bb3765c23b",
@@ -80,7 +95,9 @@
           "input": {
             "instructions": ["1 -"]
           },
-          "expected": {"error": "only one value on the stack"}
+          "expected": {
+            "error": "only one value on the stack"
+          }
         }
       ]
     },
@@ -103,7 +120,9 @@
           "input": {
             "instructions": ["*"]
           },
-          "expected": {"error": "empty stack"}
+          "expected": {
+            "error": "empty stack"
+          }
         },
         {
           "uuid": "8ba4b432-9f94-41e0-8fae-3b3712bd51b3",
@@ -112,7 +131,9 @@
           "input": {
             "instructions": ["1 *"]
           },
-          "expected": {"error": "only one value on the stack"}
+          "expected": {
+            "error": "only one value on the stack"
+          }
         }
       ]
     },
@@ -144,7 +165,9 @@
           "input": {
             "instructions": ["4 0 /"]
           },
-          "expected": {"error": "divide by zero"}
+          "expected": {
+            "error": "divide by zero"
+          }
         },
         {
           "uuid": "1d5bb6b3-6749-4e02-8a79-b5d4d334cb8a",
@@ -153,7 +176,9 @@
           "input": {
             "instructions": ["/"]
           },
-          "expected": {"error": "empty stack"}
+          "expected": {
+            "error": "empty stack"
+          }
         },
         {
           "uuid": "d5547f43-c2ff-4d5c-9cb0-2a4f6684c20d",
@@ -162,7 +187,9 @@
           "input": {
             "instructions": ["1 /"]
           },
-          "expected": {"error": "only one value on the stack"}
+          "expected": {
+            "error": "only one value on the stack"
+          }
         }
       ]
     },
@@ -217,7 +244,9 @@
           "input": {
             "instructions": ["dup"]
           },
-          "expected": {"error": "empty stack"}
+          "expected": {
+            "error": "empty stack"
+          }
         }
       ]
     },
@@ -249,7 +278,9 @@
           "input": {
             "instructions": ["drop"]
           },
-          "expected": {"error": "empty stack"}
+          "expected": {
+            "error": "empty stack"
+          }
         }
       ]
     },
@@ -281,7 +312,9 @@
           "input": {
             "instructions": ["swap"]
           },
-          "expected": {"error": "empty stack"}
+          "expected": {
+            "error": "empty stack"
+          }
         },
         {
           "uuid": "dd52e154-5d0d-4a5c-9e5d-73eb36052bc8",
@@ -290,7 +323,9 @@
           "input": {
             "instructions": ["1 swap"]
           },
-          "expected": {"error": "only one value on the stack"}
+          "expected": {
+            "error": "only one value on the stack"
+          }
         }
       ]
     },
@@ -322,7 +357,9 @@
           "input": {
             "instructions": ["over"]
           },
-          "expected": {"error": "empty stack"}
+          "expected": {
+            "error": "empty stack"
+          }
         },
         {
           "uuid": "ee574dc4-ef71-46f6-8c6a-b4af3a10c45f",
@@ -331,7 +368,9 @@
           "input": {
             "instructions": ["1 over"]
           },
-          "expected": {"error": "only one value on the stack"}
+          "expected": {
+            "error": "only one value on the stack"
+          }
         }
       ]
     },
@@ -343,10 +382,7 @@
           "description": "can consist of built-in words",
           "property": "evaluate",
           "input": {
-            "instructions": [
-              ": dup-twice dup dup ;",
-              "1 dup-twice"
-            ]
+            "instructions": [": dup-twice dup dup ;", "1 dup-twice"]
           },
           "expected": [1, 1, 1]
         },
@@ -355,10 +391,7 @@
           "description": "execute in the right order",
           "property": "evaluate",
           "input": {
-            "instructions": [
-              ": countup 1 2 3 ;",
-              "countup"
-            ]
+            "instructions": [": countup 1 2 3 ;", "countup"]
           },
           "expected": [1, 2, 3]
         },
@@ -367,11 +400,7 @@
           "description": "can override other user-defined words",
           "property": "evaluate",
           "input": {
-            "instructions": [
-              ": foo dup ;",
-              ": foo dup dup ;",
-              "1 foo"
-            ]
+            "instructions": [": foo dup ;", ": foo dup dup ;", "1 foo"]
           },
           "expected": [1, 1, 1]
         },
@@ -380,10 +409,7 @@
           "description": "can override built-in words",
           "property": "evaluate",
           "input": {
-            "instructions": [
-              ": swap dup ;",
-              "1 swap"
-            ]
+            "instructions": [": swap dup ;", "1 swap"]
           },
           "expected": [1, 1]
         },
@@ -392,10 +418,7 @@
           "description": "can override built-in operators",
           "property": "evaluate",
           "input": {
-            "instructions": [
-              ": + * ;",
-              "3 4 +"
-            ]
+            "instructions": [": + * ;", "3 4 +"]
           },
           "expected": [12]
         },
@@ -404,12 +427,7 @@
           "description": "can use different words with the same name",
           "property": "evaluate",
           "input": {
-            "instructions": [
-              ": foo 5 ;",
-              ": bar foo ;",
-              ": foo 6 ;",
-              "bar foo"
-            ]
+            "instructions": [": foo 5 ;", ": bar foo ;", ": foo 6 ;", "bar foo"]
           },
           "expected": [5, 6]
         },
@@ -418,11 +436,7 @@
           "description": "can define word that uses word with the same name",
           "property": "evaluate",
           "input": {
-            "instructions": [
-              ": foo 10 ;",
-              ": foo foo 1 + ;",
-              "foo"
-            ]
+            "instructions": [": foo 10 ;", ": foo foo 1 + ;", "foo"]
           },
           "expected": [11]
         },
@@ -433,7 +447,9 @@
           "input": {
             "instructions": [": 1 2 ;"]
           },
-          "expected": {"error": "illegal operation"}
+          "expected": {
+            "error": "illegal operation"
+          }
         },
         {
           "uuid": "5180f261-89dd-491e-b230-62737e09806f",
@@ -442,7 +458,27 @@
           "input": {
             "instructions": ["foo"]
           },
-          "expected": {"error": "undefined operation"}
+          "expected": {
+            "error": "undefined operation"
+          }
+        },
+        {
+          "uuid": "3c8bfef3-edbb-49c1-9993-21d4030043cb",
+          "description": "only defines locally",
+          "comments": [
+            "This test is meant to determine if instructions that define      ",
+            "words are executed in the state of the program or locally. For   ",
+            "example, in OOP-based approaches, the words should be defined in ",
+            "the same scope, or local to the instance the instructions were   ",
+            "evaluated in.                                                    "
+          ],
+          "scenarios": ["local-scope"],
+          "property": "evaluateBoth",
+          "input": {
+            "instructionsFirst": [": + - ;", "1 1 +"],
+            "instructionsSecond": ["1 1 +"]
+          },
+          "expected": [[0], [2]]
         }
       ]
     },
@@ -490,10 +526,7 @@
           "description": "user-defined words are case-insensitive",
           "property": "evaluate",
           "input": {
-            "instructions": [
-              ": foo dup ;",
-              "1 FOO Foo foo"
-            ]
+            "instructions": [": foo dup ;", "1 FOO Foo foo"]
           },
           "expected": [1, 1, 1, 1]
         },
@@ -502,10 +535,7 @@
           "description": "definitions are case-insensitive",
           "property": "evaluate",
           "input": {
-            "instructions": [
-              ": SWAP DUP Dup dup ;",
-              "1 swap"
-            ]
+            "instructions": [": SWAP DUP Dup dup ;", "1 swap"]
           },
           "expected": [1, 1, 1, 1]
         }
