@@ -422,6 +422,30 @@
           "expected": [1, 1]
         }
       ]
+    },
+    {
+      "uuid": "bd1eab16-7603-4a77-ae4e-23c930fe39cd",
+      "description": "Ordering",
+      "property": "<",
+      "comments": [
+        "Depending on your language's features, you may have to implement the following operators:",
+        "=, !=, <=, <, >=, >",
+        "",
+        "To test the ordering, it's recommended to iterate through a = -5..5, b = -5..5, c = -5..5, d = -5..5,",
+        "define rational numbers r = a / b, s = c / d,",
+        "and compare the result of r $op c,",
+        "where $op = {=, !=, <=, <, >=, >}",
+        "to the result of the corresponding floating point comparisons",
+        "a / b $op c. Analogously, compare r $op s with a / b $op c / d.",
+        "Skip the iteration step when a == b == 0 or c == d == 0, since 0/0 is undefined.",
+        "",
+        "Depending on your implementation of the exercise, you may need to consider",
+        "division by zero differently in the iteration.",
+        "",
+        "This testing method is based on Julia Base tests[1], released under the MIT licence[2].",
+        "[1]: https://github.com/JuliaLang/julia/blob/52bafeb981bac548afd2264edb518d8d86944dca/test/rational.jl",
+        "[2]: https://github.com/JuliaLang/julia/blob/52bafeb981bac548afd2264edb518d8d86944dca/LICENSE.md"
+      ]
     }
   ]
 }
