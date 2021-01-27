@@ -29,6 +29,15 @@
       "expected": 47
     },
     {
+      "uuid": "b7a6cbd2-ae3c-470a-93eb-56670b305640",
+      "description": "White and red",
+      "property": "value",
+      "input": {
+        "colors": ["white", "red"]
+      },
+      "expected": 92
+    },
+    {
       "uuid": "77a8293d-2a83-4016-b1af-991acc12b9fe",
       "description": "Orange and orange",
       "property": "value",
