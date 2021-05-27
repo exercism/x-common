@@ -108,6 +108,14 @@
             "immutable"
           ]
         }
+        {
+          "description": "Recent after a call to sort",
+          "property": "personalTopThree", "latest",
+          "input": {
+            "scores": [10, 20, 30, 40, 25]
+          },
+          "expected": [25]
+        }
       ]
     }
   ]
