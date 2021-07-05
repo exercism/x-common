@@ -212,6 +212,30 @@
             "sides": [0.5, 0.4, 0.6]
           },
           "expected": true
+        },
+        {
+          "comments": [
+            " Your track may choose to skip this test    ",
+            " and deal only with integers if appropriate "
+          ],
+          "description": "floats may not be zero",
+          "property": "scalene",
+          "input": {
+            "sides": [0.0, 0.4, 0.3]
+          },
+          "expected": false
+        },
+        {
+          "comments": [
+            " Your track may choose to skip this test    ",
+            " and deal only with integers if appropriate "
+          ],
+          "description": "floats may not violate triangle inequality",
+          "property": "scalene",
+          "input": {
+            "sides": [0.1, 0.3, 0.5]
+          },
+          "expected": false
         }
       ]
     }
