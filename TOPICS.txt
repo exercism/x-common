@@ -5,6 +5,7 @@ callbacks
 conditionals
 events
 equality
+error_handling
 exception_handling
 generics
 inheritance
