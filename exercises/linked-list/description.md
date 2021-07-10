@@ -20,6 +20,7 @@ offers an array-like interface for adding and removing items:
 * `pop` (*remove value at back*);
 * `shift` (*remove value at front*).
 * `unshift` (*insert value at front*);
+* `delete` (*remove any node by value*);
 
 To keep your implementation simple, the tests will not cover error
 conditions. Specifically: `pop` or `shift` will never be called on an
