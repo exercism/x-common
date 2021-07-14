@@ -1,0 +1,96 @@
+{
+  "exercise": "levenshtein-distance",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "description": "empty strings",
+      "property": "distance",
+      "input": {
+        "from": "",
+        "to": ""
+      },
+      "expected": 0
+    },
+    {
+      "description": "identical strings",
+      "property": "distance",
+      "input": {
+        "from": "abcdefghij",
+        "to": "abcdefghij"
+      },
+      "expected": 0
+    },
+    {
+      "description": "only insertions",
+      "property": "distance",
+      "input": {
+        "from": "",
+        "to": "abcd"
+      },
+      "expected": 4
+    },
+    {
+      "description": "only deletions",
+      "property": "distance",
+      "input": {
+        "from": "abcd",
+        "to": ""
+      },
+      "expected": 4
+    },
+    {
+      "description": "only substitution",
+      "property": "distance",
+      "input": {
+        "from": "lifo",
+        "to": "fifo"
+      },
+      "expected": 1
+    },
+    {
+      "description": "substitution and insertion",
+      "property": "distance",
+      "input": {
+        "from": "mine",
+        "to": "times"
+      },
+      "expected": 3
+    },
+    {
+      "description": "substitution and deletion",
+      "property": "distance",
+      "input": {
+        "from": "times",
+        "to": "mine"
+      },
+      "expected": 3
+    },
+    {
+      "description": "with numbers",
+      "property": "distance",
+      "input": {
+        "from": "abc123",
+        "to": "abd2234"
+      },
+      "expected": 3
+    },
+    {
+      "description": "with special characters",
+      "property": "distance",
+      "input": {
+        "from": "hello world!",
+        "to": "helloworld"
+      },
+      "expected": 2
+    },
+    {
+      "description": "with capital letters",
+      "property": "distance",
+      "input": {
+        "from": "Oxygen O2",
+        "to": "Carbondioxide CO2"
+      },
+      "expected": 13
+    }
+  ]
+}
