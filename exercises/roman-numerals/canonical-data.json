@@ -180,6 +180,66 @@
         "number": 3000
       },
       "expected": "MMM"
+    },
+    {
+      "uuid": "6d1d82d5-bf3e-48af-9139-87d7165ed509",
+      "description": "16 is XVI",
+      "comments": [
+        "16 has exactly one occurence of all symbols whose value is less than 50 (L) in decreasing order"
+      ],
+      "property": "roman",
+      "input": {
+        "number": 16
+      },
+      "expected": "XVI"
+    },
+    {
+      "uuid": "4465ffd5-34dc-44f3-ada5-56f5007b6dad",
+      "description": "66 is LXVI",
+      "comments": [
+        "66 has exactly one occurence of all symbols whose value is less than 100 (C) in decreasing order"
+      ],
+      "property": "roman",
+      "input": {
+        "number": 66
+      },
+      "expected": "LXVI"
+    },
+    {
+      "uuid": "902ad132-0b4d-40e3-8597-ba5ed611dd8d",
+      "description": "166 is CLXVI",
+      "comments": [
+        "166 has exactly one occurence of all symbols whose value is less than 500 (D) in decreasing order"
+      ],
+      "property": "roman",
+      "input": {
+        "number": 166
+      },
+      "expected": "CLXVI"
+    },
+    {
+      "uuid": "dacb84b9-ea1c-4a61-acbb-ce6b36674906",
+      "description": "666 is DCLXVI",
+      "comments": [
+        "666 has exactly one occurence of all symbols whose value is less than 1000 (M) in decreasing order"
+      ],
+      "property": "roman",
+      "input": {
+        "number": 666
+      },
+      "expected": "DCLXVI"
+    },
+    {
+      "uuid": "efbe1d6a-9f98-4eb5-82bc-72753e3ac328",
+      "description": "1666 is MDCLXVI",
+      "comments": [
+        "1666 has exactly one occurence of all symbols in decreasing order"
+      ],
+      "property": "roman",
+      "input": {
+        "number": 1666
+      },
+      "expected": "MDCLXVI"
     }
   ]
 }
