@@ -2,56 +2,236 @@
   "exercise": "flatten-array",
   "cases": [
     {
+      "uuid": "8c71dabd-da60-422d-a290-4a571471fb14",
+      "description": "empty",
+      "property": "flatten",
+      "input": {
+        "array": []
+      },
+      "expected": []
+    },
+    {
       "uuid": "d268b919-963c-442d-9f07-82b93f1b518c",
       "description": "no nesting",
       "property": "flatten",
       "input": {
-        "array": [0, 1, 2]
+        "array": [
+          0,
+          1,
+          2
+        ]
       },
-      "expected": [0, 1, 2]
+      "expected": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "uuid": "3f15bede-c856-479e-bb71-1684b20c6a30",
+      "description": "flattens a nested array",
+      "property": "flatten",
+      "input": {
+        "array": [
+          [
+            []
+          ]
+        ]
+      },
+      "expected": []
     },
     {
       "uuid": "c84440cc-bb3a-48a6-862c-94cf23f2815d",
       "description": "flattens array with just integers present",
       "property": "flatten",
       "input": {
-        "array": [1, [2, 3, 4, 5, 6, 7], 8]
+        "array": [
+          1,
+          [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          8
+        ]
       },
-      "expected": [1, 2, 3, 4, 5, 6, 7, 8]
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
     },
     {
       "uuid": "d3d99d39-6be5-44f5-a31d-6037d92ba34f",
       "description": "5 level nesting",
       "property": "flatten",
       "input": {
-        "array": [0, 2, [[2, 3], 8, 100, 4, [[[50]]]], -2]
+        "array": [
+          0,
+          2,
+          [
+            [
+              2,
+              3
+            ],
+            8,
+            100,
+            4,
+            [
+              [
+                [
+                  50
+                ]
+              ]
+            ]
+          ],
+          -2
+        ]
       },
-      "expected": [0, 2, 2, 3, 8, 100, 4, 50, -2]
+      "expected": [
+        0,
+        2,
+        2,
+        3,
+        8,
+        100,
+        4,
+        50,
+        -2
+      ]
     },
     {
       "uuid": "d572bdba-c127-43ed-bdcd-6222ac83d9f7",
       "description": "6 level nesting",
       "property": "flatten",
       "input": {
-        "array": [1, [2, [[3]], [4, [[5]]], 6, 7], 8]
+        "array": [
+          1,
+          [
+            2,
+            [
+              [
+                3
+              ]
+            ],
+            [
+              4,
+              [
+                [
+                  5
+                ]
+              ]
+            ],
+            6,
+            7
+          ],
+          8
+        ]
       },
-      "expected": [1, 2, 3, 4, 5, 6, 7, 8]
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "uuid": "0705a8e5-dc86-4cec-8909-150c5e54fa9c",
+      "description": "null values are omitted from the final result",
+      "comments": [
+        "If the language supports other null-like values such as undefined    ",
+        "in JavaScript, this test can be copied and the null values can be    ",
+        "replaced with those null-like values."
+      ],
+      "property": "flatten",
+      "input": {
+        "array": [
+          1,
+          2,
+          null
+        ]
+      },
+      "expected": [
+        1,
+        2
+      ]
     },
     {
       "uuid": "ef1d4790-1b1e-4939-a179-51ace0829dbd",
       "description": "6 level nest list with null values",
       "property": "flatten",
       "input": {
-        "array": [0, 2, [[2, 3], 8, [[100]], null, [[null]]], -2]
+        "array": [
+          0,
+          2,
+          [
+            [
+              2,
+              3
+            ],
+            8,
+            [
+              [
+                100
+              ]
+            ],
+            null,
+            [
+              [
+                null
+              ]
+            ]
+          ],
+          -2
+        ]
       },
-      "expected": [0, 2, 2, 3, 8, 100, -2]
+      "expected": [
+        0,
+        2,
+        2,
+        3,
+        8,
+        100,
+        -2
+      ]
     },
     {
       "uuid": "85721643-705a-4150-93ab-7ae398e2942d",
       "description": "all values in nested list are null",
       "property": "flatten",
       "input": {
-        "array": [null, [[[null]]], null, null, [[null, null], null], null]
+        "array": [
+          null,
+          [
+            [
+              [
+                null
+              ]
+            ]
+          ],
+          null,
+          null,
+          [
+            [
+              null,
+              null
+            ],
+            null
+          ],
+          null
+        ]
       },
       "expected": []
     }
