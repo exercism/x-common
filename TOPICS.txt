@@ -1,3 +1,27 @@
+Using this List
+---------------
+This is a non-exhaustive list of topics for use in config.json and elsewhere.
+The primary purpose for these topics is enabling students to navigate a given
+track, both through the topic data on each problem and through UI elements
+that parse and display these topics. This means that between tracks, topics
+may vary freely without necessarily imposing requirements on the surrounding
+tracks.
+
+Within a given track, however, consistency is paramount. A given name for a
+thing should remain exactly consistent due to how the track data is parsed,
+i.e. you can technically use "string" but it must always be "string", not
+"strings", so for simplicity's sake a track should favor pluralization or
+innumerable words. The snake_case form should always be favored, also,
+because alternatives are liable to break the parsing and interpolation that
+the UI does.
+
+In spite of these two rules, the third governing direction for topic list
+is that between tracks it is desirable to provide associative context, so
+that someone from another programming language can use concepts they
+already have learned, where applicable, to understand the language. This is
+mentioned very last because it should be last:  Exercism is dedicated
+first and foremost to embracing the uniqueness of a given language.
+
 Basic Concepts
 --------------
 abstract_classes
