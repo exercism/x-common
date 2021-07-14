@@ -12,7 +12,7 @@
     },
     {
       "uuid": "579e8f03-9659-4b85-a1a2-d64350f6b17a",
-      "description": "Single digit numbers are Armstrong numbers",
+      "description": "Single-digit numbers are Armstrong numbers",
       "property": "isArmstrongNumber",
       "input": {
         "number": 5
@@ -21,7 +21,7 @@
     },
     {
       "uuid": "2d6db9dc-5bf8-4976-a90b-b2c2b9feba60",
-      "description": "There are no 2 digit Armstrong numbers",
+      "description": "There are no two-digit Armstrong numbers",
       "property": "isArmstrongNumber",
       "input": {
         "number": 10
@@ -30,7 +30,7 @@
     },
     {
       "uuid": "509c087f-e327-4113-a7d2-26a4e9d18283",
-      "description": "Three digit number that is an Armstrong number",
+      "description": "Three-digit number that is an Armstrong number",
       "property": "isArmstrongNumber",
       "input": {
         "number": 153
@@ -39,7 +39,7 @@
     },
     {
       "uuid": "7154547d-c2ce-468d-b214-4cb953b870cf",
-      "description": "Three digit number that is not an Armstrong number",
+      "description": "Three-digit number that is not an Armstrong number",
       "property": "isArmstrongNumber",
       "input": {
         "number": 100
@@ -48,7 +48,7 @@
     },
     {
       "uuid": "6bac5b7b-42e9-4ecb-a8b0-4832229aa103",
-      "description": "Four digit number that is an Armstrong number",
+      "description": "Four-digit number that is an Armstrong number",
       "property": "isArmstrongNumber",
       "input": {
         "number": 9474
@@ -57,7 +57,7 @@
     },
     {
       "uuid": "eed4b331-af80-45b5-a80b-19c9ea444b2e",
-      "description": "Four digit number that is not an Armstrong number",
+      "description": "Four-digit number that is not an Armstrong number",
       "property": "isArmstrongNumber",
       "input": {
         "number": 9475
@@ -66,7 +66,7 @@
     },
     {
       "uuid": "f971ced7-8d68-4758-aea1-d4194900b864",
-      "description": "Seven digit number that is an Armstrong number",
+      "description": "Seven-digit number that is an Armstrong number",
       "property": "isArmstrongNumber",
       "input": {
         "number": 9926315
@@ -75,7 +75,7 @@
     },
     {
       "uuid": "7ee45d52-5d35-4fbd-b6f1-5c8cd8a67f18",
-      "description": "Seven digit number that is not an Armstrong number",
+      "description": "Seven-digit number that is not an Armstrong number",
       "property": "isArmstrongNumber",
       "input": {
         "number": 9926314
