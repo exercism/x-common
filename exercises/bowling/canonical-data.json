@@ -269,5 +269,13 @@
       "roll": 2
     },
     "expected": {"error": "Cannot roll after game is over"}
+  },
+  {
+    "description": "last two strikes followed by only last bonus with non strike points",
+    "property": "score",
+    "input": {
+      "previousRolls": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 1],
+    },
+    "expected": 31
   }]
 }
