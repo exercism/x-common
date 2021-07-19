@@ -47,6 +47,17 @@
       "expected": { "error": "Only positive numbers are allowed" }
     },
     {
+      "uuid": "2187673d-77d6-4543-975e-66df6c50e2da",
+      "description": "zero is an error",
+      "property": "steps",
+      "comments": ["Collatz Conjecture holds only for positive integers"],
+      "reimplements": "7d4750e6-def9-4b86-aec7-9f7eb44f95a3",
+      "input": {
+        "number": 0
+      },
+      "expected": { "error": "Only positive integers are allowed" }
+    },
+    {
       "uuid": "c6c795bf-a288-45e9-86a1-841359ad426d",
       "description": "negative value is an error",
       "property": "steps",
@@ -54,6 +65,26 @@
         "number": -15
       },
       "expected": { "error": "Only positive numbers are allowed" }
+    },
+    {
+      "uuid": "ec11f479-56bc-47fd-a434-bcd7a31a7a2e",
+      "description": "negative value is an error",
+      "comments": ["Collatz Conjecture holds only for positive integers"],
+      "reimplements": "c6c795bf-a288-45e9-86a1-841359ad426d",
+      "property": "steps",
+      "input": {
+        "number": -15
+      },
+      "expected": { "error": "Only positive integers are allowed" }
+    },
+    {
+      "uuid": "f7176864-e35d-41eb-ba80-0242ac130004",
+      "description": "non-integer value is an error",
+      "property": "steps",
+      "input": {
+        "number": 3.1415
+      },
+      "expected": { "error": "Only positive integers are allowed" }
     }
   ]
 }
